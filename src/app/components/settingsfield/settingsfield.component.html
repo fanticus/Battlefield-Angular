@@ -1,0 +1,38 @@
+<div class="settingsfield-container">
+  <div class="ships-container">
+    <!-- <p>Click on AUTO button to locate your ships</p> -->
+    <app-ships
+      [shipsData]="shipsData"
+      style="margin-bottom: auto">
+    </app-ships>
+
+    <button *ngIf="(!searchEnemy && !gameOn)"
+      class="button-manual"
+      (click)="onManual()"
+      [disabled]="gameOn || searchEnemy || !playerShips.length">
+      Manually place ships
+    </button>
+  </div>
+
+  <div class="buttons-container" *ngIf="(!searchEnemy && !gameOn) else waitingBlock">
+    <button
+      class="button button-auto"
+      (click)="onAuto()"
+      [disabled]="gameOn || searchEnemy">
+      Auto
+    </button>
+
+    <button
+      class="button button-play"
+      *ngIf="readyToPlay"
+      [disabled]="gameOn || searchEnemy"
+      (click)="onPlay()">
+        <span class="button-line-top"></span>
+        <span class="button-line-right"></span>
+        <span class="button-line-left"></span>
+        <span class="button-line-bottom"></span>
+        Play
+    </button>
+  </div>
+  <ng-template #waitingBlock>Waiting an enemy...</ng-template>
+</div>

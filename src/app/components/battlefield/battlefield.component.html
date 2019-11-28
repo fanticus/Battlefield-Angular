@@ -1,0 +1,23 @@
+<div class="battlefield-container"
+    [ngClass] = "{
+        isEnemyShooter: (isEnemyField !== playerIsShooter) && gameOn && !gameOver
+    }">
+    <div
+      [ngClass] = "{ rows: true }"
+      *ngFor="let row of field; let i = index">
+        <button
+            [ngClass] = "{
+                isPointer: (isEnemyField && playerIsShooter && !gameOver)
+                    || (!isEnemyField && !gameOn && shipsService.currentShip),
+                cell: true,
+                ship: field[i][j].isShip && !isEnemyField,
+                hit: field[i][j].cellStatus === 'hit',
+                miss: field[i][j].cellStatus === 'miss'
+            }"
+            *ngFor="let cell of field; let j = index"
+            (click) = "onCellClick(field[i][j])"
+            [disabled]="gameOver && (!playerIsShooter && isEnemyField
+                || playerIsShooter && !isEnemyField)">
+        </button>
+    </div>
+</div>

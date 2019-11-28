@@ -1,0 +1,58 @@
+.fourDeckShips,
+.threeDeckShips,
+.twoDeckShips,
+.oneDeckShips {
+    display: inline-block;
+    border: 2px solid #1976d2;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 3px;
+    background-color: #1976d2;
+    height: 100%;
+    margin: 0 10px 10px 0;
+    cursor: pointer;
+    // &:hover {
+        // border: 1px solid red;
+    // }
+}
+
+.currentShip {
+    box-shadow: 0 0 0 2px #fff, 0 0 1px 3px #1976d2;
+}
+
+.fourDeckShips {
+    width: 40%;
+}
+
+.threeDeckShips {
+    width: 30%;
+}
+
+.oneDeckShips {
+    width: 10%;
+}
+
+.twoDeckShips {
+    width: 20%;
+}
+
+.ships-container {
+    height: 10%;
+    // outline: 1px solid red;
+    margin: 15px 0;
+    position: relative;
+}
+
+.ships-number {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid #1976d2;
+    text-align: center;
+    background-color: #fff;
+
+    width: 22px;
+    height: 22px;
+    left: -10px;
+    top: -10px;
+}

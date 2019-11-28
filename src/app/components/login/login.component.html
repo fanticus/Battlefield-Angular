@@ -1,0 +1,50 @@
+<div class="form-group">
+    <form
+      [formGroup]="myForm">
+        <label
+          for="username">
+          Username
+        </label>
+        <input
+          id="username"
+          placeholder="Name"
+          formControlName="username">
+        <div
+          [hidden]="myForm.controls['username'].valid || !myForm.controls['username'].touched">
+            <div
+              *ngIf="!myForm.controls['username'].required">
+                Please enter your name
+            </div>
+            <div
+              *ngIf="!myForm.controls['username'].pattern">
+                Name must contain only latin letters
+            </div>
+        </div>
+        <legend>
+            <input
+              formControlName='mode'
+              type="radio"
+              id="online"
+              value="online">
+            <label
+              for="online">
+              Online
+            </label>
+            <input
+              formControlName='mode'
+              type="radio"
+              id="computer"
+              value="computer">
+            <label
+              for="computer">
+              Computer
+            </label>
+        </legend>
+        <button
+          (click)="login()"
+          [disabled]="myForm.invalid"
+          routerLink="/game">
+            Login
+        </button>
+    </form>
+</div>

@@ -1,0 +1,33 @@
+.battlefield,
+.settingsfield {
+  transition: all 0.6s ease-in-out;
+}
+
+.settingsRotate {
+  transform:  rotateY(180deg);
+}
+
+.comp-battlefield {
+  transform: rotateY(180deg);
+}
+
+.compBattlefieldRotate {
+  transform: rotateY(360deg);
+}
+
+//-----------------
+
+@keyframes show {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.speech {
+  animation-name: show;
+  animation-duration: 0.6s;
+}

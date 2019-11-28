@@ -1,0 +1,53 @@
+<!-- <span class="fourdeckship" cdkDrag>4</span><br>
+
+<span class="threedeckship" cdkDrag>3</span>
+<span class="threedeckship" cdkDrag>3</span><br>
+
+<span class="twodeckship" cdkDrag>2</span>
+<span class="twodeckship" cdkDrag>2</span>
+<span class="twodeckship" cdkDrag>2</span><br>
+
+<span class="onedeckship" cdkDrag>1</span>
+<span class="onedeckship" cdkDrag>1</span>
+<span class="onedeckship" cdkDrag>1</span>
+<span class="onedeckship" cdkDrag>1</span><br> -->
+
+<!-- <span [class]="shipsData[0]?.type" cdkDrag>{{shipsData[0]?.size}}</span>
+<br>
+
+<span [class]="shipsData[1]?.type" cdkDrag>{{shipsData[1]?.size}}</span>
+<span [class]="shipsData[1]?.type" cdkDrag>{{shipsData[1]?.size}}</span>
+<br>
+
+<span [class]="shipsData[2]?.type" cdkDrag>{{shipsData[2]?.size}}</span>
+<span [class]="shipsData[2]?.type" cdkDrag>{{shipsData[2]?.size}}</span>
+<span [class]="shipsData[2]?.type" cdkDrag>{{shipsData[2]?.size}}</span>
+<br>
+
+<span [class]="shipsData[3]?.type" cdkDrag>{{shipsData[3]?.size}}</span>
+<span [class]="shipsData[3]?.type" cdkDrag>{{shipsData[3]?.size}}</span>
+<span [class]="shipsData[3]?.type" cdkDrag>{{shipsData[3]?.size}}</span>
+<span [class]="shipsData[3]?.type" cdkDrag>{{shipsData[3]?.size}}</span>
+<br>   cdkDropList
+  #shipsList="cdkDropList"
+  [cdkDropListData]="ships"
+  (cdkDropListDropped)="drop($event)"-->
+
+<div
+  *ngFor="let ships of shipsService.allShips; let i = index"
+  class="ships-container" >
+
+    <span
+      *ngFor="let ship of ships"
+      [class]="shipsData[i].type"
+      [ngClass]= "{
+        currentShip: shipsService.currentShip?.type === ship.type
+      }"
+      (click)="selectShip(shipsData[i])">
+    </span>
+  <span
+    *ngIf="ships.length !== 0"
+    class="ships-number">
+      {{ships.length}}
+  </span>
+</div>
